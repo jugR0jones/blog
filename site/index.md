@@ -1,5 +1,6 @@
 ﻿---
 title: Hello
+layout: base.njk
 ---
 
 # Hello from the blog
