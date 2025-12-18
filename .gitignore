@@ -11,3 +11,5 @@ yarn-error.log*
 .vscode/*
 .idea/*
 .DS_Store
+/tmp_site/index.html
+/_site/*
