@@ -1,0 +1,19 @@
+﻿<header class="site-header">
+  <div class="container">
+    <h1 class="site-title"><a href="/">{{ title or "Site" }}</a></h1>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        {% if navigation %}
+          {% for item in navigation %}
+            <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>

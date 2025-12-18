@@ -6,11 +6,9 @@
     <title>{{ title or "Site" }}</title>
   </head>
   <body>
-    <header>
-      <h1>{{ title or "Site" }}</h1>
-    </header>
+    {% include "header.njk" %}
 
-    <main>
+    <main id="content">
       {{ content | safe }}
     </main>
 
