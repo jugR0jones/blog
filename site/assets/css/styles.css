@@ -1,14 +1,22 @@
-﻿/* Add local font-face for Atkinson Hyperlegible (place .woff2 files in site/assets/fonts/) */
+﻿/* Add local font-face for Atkinson Hyperlegible (place font files in site/assets/fonts/) */
 @font-face {
   font-family: 'Atkinson Hyperlegible';
-  src: url('/assets/fonts/AtkinsonHyperlegibleNext-Regular.woff2') format('woff2');
+  src: local('Atkinson Hyperlegible Regular'),
+       local('AtkinsonHyperlegible-Regular'),
+       url('/assets/fonts/AtkinsonHyperlegibleNext/WOFF2/AtkinsonHyperlegibleNext-Regular.woff2') format('woff2'),
+       url('/assets/fonts/AtkinsonHyperlegibleNext/OTF/AtkinsonHyperlegibleNext-Regular.woff') format('OPENTYPE'),
+       url('/assets/fonts/AtkinsonHyperlegibleNext/TTF/ AtkinsonHyperlegibleNext-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Atkinson Hyperlegible';
-  src: url('/assets/fonts/AtkinsonHyperlegibleNext-Bold.woff2') format('woff2');
+  src: local('Atkinson Hyperlegible Bold'),
+       local('AtkinsonHyperlegible-Bold'),
+       url('/assets/fonts/AtkinsonHyperlegibleNext/WOFF2/AtkinsonHyperlegibleNext-Bold.woff2') format('woff2'),
+       url('/assets/fonts/AtkinsonHyperlegibleNext/OTF/AtkinsonHyperlegibleNext-Bold.woff') format('opentype'),
+       url('/assets/fonts/AtkinsonHyperlegibleNext/TTF/AtkinsonHyperlegibleNext-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
