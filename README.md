@@ -45,4 +45,32 @@ Troubleshooting
 - If `npm run site:start` fails, ensure dependencies are installed and that Node.js is supported (use an LTS release).
 - If the port is in use, Eleventy will usually print an error — stop the process using that port or specify a different port using ELEVENTY_PORT environment variable.
 
-Want me to also add an Action to publish to GitHub Pages on push to `main`? Reply yes and I'll add it and test the configuration locally as far as possible.
+Drafts & hidden posts
+
+This project supports hiding work-in-progress posts with front matter flags. Add any of the following to a post's YAML front matter to keep it out of public lists:
+
+- `draft: true` — marks the post as a draft.
+- `hidden: true` — marks the post as hidden.
+- `published: false` — explicitly marks the post as not published.
+
+Behavior:
+- Posts with any of these flags are excluded from the `posts` collection and will not appear in the `/blog/` listing.
+- During the Eleventy build the draft page may still be processed and written, but an `afterBuild` cleanup removes the generated files from `_site` so drafts are not present in the final output.
+
+Recommended workflow:
+- Locally: use `draft: true` while you work on a post so it doesn't show up in listings. You can preview the page by temporarily removing the flag or by viewing the generated page before the cleanup (not usually needed).
+- Publishing: remove `draft: true` (and any other hide flags) from the post's front matter, then build and deploy.
+- Source control: consider keeping drafts on feature branches and only merge into your main branch when ready to publish.
+
+Example front matter to hide a post:
+
+```yaml
+---
+title: "WIP: New post"
+date: 2025-12-18
+draft: true
+layout: base.njk
+---
+```
+
+Want me to add a short note in the repository's CONTRIBUTING or add a GitHub Action that fails if drafts are accidentally merged into `main`? I can add that if you'd like.
