@@ -93,3 +93,100 @@
   To test your current setup, you'd run npm install first to install dependencies, then npm run build
   to generate the static site. The resulting files will be in the dist/ folder ready for deployment to
   any static hosting provider like GitHub Pages, Netlify, or S3.
+
+
+
+
+  ------
+  automation
+  -----
+
+   ## 1. Manual Automation with Scripts
+
+  You can add custom scripts to your package.json to automate common tasks:
+
+  {
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview",
+      "build:watch": "vite build --watch",
+      "lint": "eslint src",
+      "test": "vitest",
+      "deploy": "npm run build && echo 'Ready for deployment!'",
+      "clean:build": "rm -rf dist"
+    }
+  }
+
+  ## 2. Development Workflow Automation
+
+  For development, you can set up automatic rebuilding when files change:
+
+  # Build and watch for changes (dev server)
+  npm run dev
+
+  # Build with watch mode for continuous compilation
+  npm run build --watch
+
+  ## 3. Deployment Automation
+
+  You can create deployment scripts:
+
+  # Build and preview locally before deployment
+  npm run build
+  npm run preview
+
+  # Or create a deployment script
+  echo "Building site..." && npm run build && echo "Site built successfully!"
+
+  ## 4. Using Build Tools for Automation
+
+  With npm scripts (recommended for this project):
+
+  # Run all checks and build
+  npm run lint && npm run test && npm run build
+
+  # Build with optimization
+  npm run build --mode production
+
+  ## 5. CI/CD Integration (for automated deployments)
+
+  If you're using platforms like GitHub Actions, Netlify, or Vercel, you can set up automatic builds:
+
+  Example GitHub Actions workflow:
+
+  name: Build and Deploy
+  on: [push]
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '18'
+        - run: npm install
+        - run: npm run build
+
+  ## 6. Local Automation with Watchers
+
+  You can create a simple automation script that watches for changes:
+
+  # Create a simple watch script
+  while true; do
+    echo "Watching for changes..."
+    npm run build
+    sleep 5  # Wait 5 seconds before next check
+  done
+
+  ## Best Practices for This Repository:
+
+  1. Development: Use npm run dev for hot-reloading during development
+  2. Build: Use npm run build for generating static files
+  3. Preview: Use npm run preview to test the production build locally
+  4. Testing: Use npm run test to run unit tests
+
+  The build process is designed to be fully automated and reproducible, which is exactly what the
+  AGENTS.md guidelines require for maintaining small payload budgets and ensuring consistent builds.
+
+  Would you like me to help you set up any specific automation workflows for your blog?

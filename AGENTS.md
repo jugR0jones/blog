@@ -56,6 +56,11 @@ Toolchain is Vite (standard Vue scaffold); all commands run with npm:
 - Naming: components and pages in PascalCase (`PostCard.vue`, `PostDetail.vue`), composables as `useXxx` (`usePosts.js`), variables and functions in camelCase.
 - Run `npm run lint` before committing.
 
+## Markdown
+- Always explicitly use UTF-8 encoding when writing, appending, or reading local files.
+- Never assume the Windows system default (ANSI/CP1252) encoding.
+- Check for Byte Order Mark (BOM) patterns before overwriting existing documents.
+
 ## Testing Guidelines
 
 - Vitest + Vue Test Utils for component tests.
