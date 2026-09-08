@@ -20,6 +20,8 @@ Place a sticky header at the top of the page with navigation items next to each 
 ## Affected Boundaries
 - `src/components/Header.vue` template, script, style.
 - `src/components/Layout.vue` remains unchanged; header width follows layout constraints.
+- `src/App.vue` remains Layout wrapper at app root.
+- `src/pages/Home.vue`, `src/pages/Archive.vue`, `src/pages/About.vue` currently wrap content in Layout, causing duplicate header.
 - No changes to `src/style.css` or build config required.
 
 ## Tasks
@@ -32,18 +34,22 @@ Place a sticky header at the top of the page with navigation items next to each 
    - Update `.nav-list`: `display: flex; justify-content: center; align-items: center; gap: 1.5rem; list-style: none; margin: 0; padding: 0;`.
    - Remove `width: 100%` and `justify-content: space-between`.
    - Keep link styles for color and hover underline.
-5. Verify CSS loading: confirm `src/style.css` is imported in `App.vue` and Vite processes scoped styles correctly in dev and build.
-6. Accessibility check: ensure `<header>` and `<nav>` landmarks remain, links have visible focus, semantic list structure preserved.
-7. Validation: open dev server, scroll page, confirm header stays pinned at top, items are centered and next to each other, no layout shift, header background covers scrolling content.
+5. Remove duplicate Layout wrappers from pages:
+   - In `src/pages/Home.vue`, `src/pages/Archive.vue`, `src/pages/About.vue`, remove `<Layout>` wrapper and import, render content directly.
+   - Ensure pages export only page content; Layout remains in `src/App.vue`.
+6. Verify CSS loading: confirm `src/style.css` is imported in `App.vue` and Vite processes scoped styles correctly in dev and build.
+7. Accessibility check: ensure `<header>` and `<nav>` landmarks remain, links have visible focus, semantic list structure preserved.
+8. Validation: open dev server, scroll page, confirm header stays pinned at top, items are centered and next to each other, no layout shift, header background covers scrolling content, and header appears only once per page.
 
 ## Risks
 - Parent overflow or transform could break `position: sticky`. Layout uses normal flow; no overflow set.
 - Scoped style mangling could hide styles if build fails. Verify Vite output.
 - Removing script eliminates future hide/show option; decision is intentional per requirements.
+- Removing Layout from pages changes page structure; ensure no page-specific layout dependencies exist.
 
 ## Validation Plan
 - Visual: header pinned at top, centered nav items with gap.
-- Functional: scroll through Home, Archive, About pages; header remains visible.
+- Functional: scroll through Home, Archive, About pages; header remains visible and appears only once.
 - Build: `npm run build` succeeds, stylesheet <15KB, no runtime JS added.
 - Accessibility: keyboard navigation through nav links works, focus visible.
 
