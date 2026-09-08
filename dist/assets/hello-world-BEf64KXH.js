@@ -1,4 +1,4 @@
----
+const e=`---
 title: Hello World
 slug: hello-world
 date: 2026-08-23
@@ -13,9 +13,10 @@ This is my first blog post. I'm excited to share my thoughts and experiences wit
 
 Vue.js is a powerful framework for building user interfaces. This blog is built with Vue 3 and Vite, making it fast and efficient.
 
-```javascript
+\`\`\`javascript
 const message = 'Hello, World!';
 console.log(message);
-```
+\`\`\`
 
 I hope you enjoy reading my content!
+`;export{e as default};

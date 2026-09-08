@@ -7,11 +7,13 @@ import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Posts from './pages/Posts.vue'
 import Projects from './pages/Projects.vue'
+import PostDetail from './pages/PostDetail.vue'
 
 // Define routes
 const routes = [
   { path: '/', component: Home },
   { path: '/posts', component: Posts },
+  { path: '/posts/:slug', component: PostDetail },
   { path: '/projects', component: Projects },
   { path: '/about', component: About }
 ]
