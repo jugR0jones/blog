@@ -1,13 +1,10 @@
 <template>
-  <Layout>
-    <div class=\
-about\>
-      <h1>About</h1>
-      <p>This is the about page for my blog.</p>
-    </div>
-  </Layout>
+  <div class="about">
+    <h1>About</h1>
+    <p>This is the about page for my blog.</p>
+  </div>
 </template>
 
 <script setup>
-import Layout from '../components/Layout.vue'
+// Page content only; Layout provided by App.vue
 </script>
