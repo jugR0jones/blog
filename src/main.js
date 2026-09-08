@@ -5,13 +5,15 @@ import App from './App.vue'
 // Import pages
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
-import Archive from './pages/Archive.vue'
+import Posts from './pages/Posts.vue'
+import Projects from './pages/Projects.vue'
 
 // Define routes
 const routes = [
   { path: '/', component: Home },
-  { path: '/about', component: About },
-  { path: '/archive', component: Archive }
+  { path: '/posts', component: Posts },
+  { path: '/projects', component: Projects },
+  { path: '/about', component: About }
 ]
 
 const router = createRouter({

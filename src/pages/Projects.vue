@@ -1,7 +1,7 @@
 <template>
-  <div class="archive">
-    <h1>Archive</h1>
-    <p>Posts archive will go here.</p>
+  <div class="projects">
+    <h1>Projects</h1>
+    <p>Projects will go here.</p>
   </div>
 </template>
 

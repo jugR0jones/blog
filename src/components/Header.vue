@@ -3,7 +3,8 @@
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item"><a href="/">Home</a></li>
-        <li class="nav-item"><a href="/archive">Archive</a></li>
+        <li class="nav-item"><a href="/posts">Posts</a></li>
+        <li class="nav-item"><a href="/projects">Projects</a></li>
         <li class="nav-item"><a href="/about">About</a></li>
       </ul>
     </nav>
