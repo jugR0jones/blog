@@ -17,7 +17,7 @@ The site is intentionally simple: black text on white, a top menu of plain links
 - Zero runtime JavaScript by default: pages are fully pre-rendered and do not hydrate. If a script ever becomes genuinely necessary it must be < 5 KB gzipped and justified in the PR.
 - One shared stylesheet, < 15 KB total; no CSS frameworks or runtime style injection.
 - Transfer budgets: a post page including one image < 150 KB; index and archive pages < 50 KB.
-- Typography uses a system font stack only; no web fonts.
+- Typography uses a system font stack only; no web fonts. Exception: dyslexia-friendly font may be bundled with the site (downloaded and saved locally) as an accessibility exception.
 
 **Code blocks & images**
 - Code blocks are highlighted at build time (e.g. Shiki, or a pre-built Prism bundle restricted to the languages actually used). No highlighter ships in the runtime.
@@ -27,7 +27,7 @@ The site is intentionally simple: black text on white, a top menu of plain links
 - Frontmatter is validated at build time: `title`, `date`, `slug`, and `tags` are required. Tags are a comma-separated string, displayed on post pages only.
 - Broken links are checked at build time; every page sets a canonical URL.
 - The build ships `sitemap.xml`, an RSS feed, Open Graph meta tags, and a 404 page.
-- Accessibility baseline: semantic HTML (`header`/`nav`/`main`/`article`), alt text on every image, and visible keyboard focus.
+- Accessibility baseline: semantic HTML (`header`/`nav`/`main`/`article`), alt text on every image, visible keyboard focus, heading hierarchy without skips, descriptive link text, aria-labels where needed, table captions and th scope, lang attribute on html, skip-to-content link, and validation with axe-core during build.
 
 ## Project Structure
 
@@ -47,6 +47,7 @@ Toolchain is Vite (standard Vue scaffold); all commands run with npm:
 - `npm run build` — output the static site to `dist/`.
 - `npm run preview` — serve the production build locally to verify output.
 - `npm test` — run Vitest unit tests.
+- `npm run a11y` — run accessibility checks with axe-core.
 - `npm run lint` — run ESLint over the project.
 
 ## Coding Style & Naming Conventions
@@ -66,11 +67,13 @@ Toolchain is Vite (standard Vue scaffold); all commands run with npm:
 - Vitest + Vue Test Utils for component tests.
 - Test files live in `tests/<Component>.spec.js`; test names describe the expected behavior (e.g., `renders the post title from frontmatter`).
 - Run `npm test` before committing; keep the build green.
+- Run `npm run a11y` before committing; keep accessibility checks green.
 
 ## Commit & Pull Request Guidelines
 
 - Git history has one initial commit so far. Use concise imperative subjects, e.g., `content: add hello-world post`.
 - Pull requests: describe the change and affected pages; include screenshots for UI changes.
+- Accessibility checklist: verify heading hierarchy, link text, aria-labels, keyboard navigation, and axe-core results.
 
 ## Deployment
 
