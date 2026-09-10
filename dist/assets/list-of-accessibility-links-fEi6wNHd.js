@@ -11,6 +11,8 @@ tags: accessibility\r
 https://www.nngroup.com/articles/ten-usability-heuristics/\r
 - Personas\r
  https://knowaboutaccessibility.org/tag/personas/\r
+- Good designers, bad websites: a proposal by Alan Dalton. April 23, 2026.\r
+https://alistapart.com/article/good-designers-bad-websites-a-proposal/\r
 \r
 # AI\r
 - Opportunities for AI in Accessibility by Aaron Gustafson. February 07, 2024.\r
