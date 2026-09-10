@@ -7,6 +7,9 @@
         <h2><router-link :to="'/posts/' + post.slug">{{ post.title }}</router-link></h2>
         <p>{{ post.summary }}</p>
         <p class="meta">Published {{ formatDate(post.date) }}</p>
+        <div class="tags" v-if="post.tags">
+          <span v-for="tag in post.tags.split(',')" :key="tag.trim()" class="tag">{{ tag.trim() }}</span>
+        </div>
       </article>
       <p v-if="posts.length === 0">No posts available.</p>
     </section>
@@ -27,7 +30,7 @@ onMounted(async () => {
       return { ...data, path }
     })
   )
-  const valid = entries.filter(p => p.title && p.slug && p.date && p.summary)
+  const valid = entries.filter(p => p.title && p.slug && p.date && p.summary && p.tags)
   valid.sort((a, b) => new Date(b.date) - new Date(a.date))
   posts.value = valid
 })
@@ -74,5 +77,16 @@ function formatDate(dateStr) {
 .meta {
   color: #666;
   font-size: 0.85rem;
+}
+.tags {
+  margin-top: 0.5rem;
+}
+.tag {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 3px;
 }
 </style>

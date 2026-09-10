@@ -3,6 +3,7 @@ title: Introduction to Vue 3
 slug: vue-3-intro
 date: 2026-08-24
 summary: Vue 3 brings exciting new features and improvements to the Vue.js framework with Composition API and better TypeScript support.
+tags: vue, javascript, frontend
 ---
 
 # Introduction to Vue 3

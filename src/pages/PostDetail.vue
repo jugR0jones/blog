@@ -2,6 +2,9 @@
   <article class="post-detail">
     <h1>{{ post?.title }}</h1>
     <p class="meta">Published {{ formattedDate }}</p>
+    <div class="tags" v-if="post?.tags">
+      <span v-for="tag in post.tags.split(',')" :key="tag.trim()" class="tag">{{ tag.trim() }}</span>
+    </div>
     <div v-if="post" v-html="renderedContent"></div>
     <p v-else>Post not found.</p>
   </article>
@@ -55,5 +58,16 @@ const formattedDate = computed(() => {
 .meta {
   color: #666;
   font-size: 0.9rem;
+}
+.tags {
+  margin: 0.5rem 0 1rem;
+}
+.tag {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 3px;
 }
 </style>

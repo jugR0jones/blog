@@ -11,7 +11,7 @@ The site is intentionally simple: black text on white, a top menu of plain links
 - Menu is top-of-page, plain links only — no drop downs.
 - Page ceiling: home, archive, post (`posts/<slug>`), about.
 - Readability: body measure 65–75 characters, line-height ~1.6, single typeface family.
-- Explicitly out of scope: dark mode, search, comments, animations, tags/categories, i18n.
+- Explicitly out of scope: dark mode, search, comments, animations, i18n.
 
 **Payload budgets (checked at build time)**
 - Zero runtime JavaScript by default: pages are fully pre-rendered and do not hydrate. If a script ever becomes genuinely necessary it must be < 5 KB gzipped and justified in the PR.
@@ -24,7 +24,7 @@ The site is intentionally simple: black text on white, a top menu of plain links
 - Images are WebP or AVIF, < 150 KB each, lazy-loaded when below the fold (`loading="lazy"`), with explicit width and height to prevent layout shift.
 
 **Robustness & discoverability**
-- Frontmatter is validated at build time: `title`, `date`, and `slug` are required.
+- Frontmatter is validated at build time: `title`, `date`, `slug`, and `tags` are required. Tags are a comma-separated string, displayed on post pages only.
 - Broken links are checked at build time; every page sets a canonical URL.
 - The build ships `sitemap.xml`, an RSS feed, Open Graph meta tags, and a 404 page.
 - Accessibility baseline: semantic HTML (`header`/`nav`/`main`/`article`), alt text on every image, and visible keyboard focus.

@@ -3,6 +3,7 @@ title: AI Server Set Up\r
 slug: ai-server-set-up\r
 date: 2026-09-09\r
 summary: Documenting the set up of my AI server\r
+tags: hardware, linux, gpu, amd\r
 ---\r
 \r
 # Hardware\r
