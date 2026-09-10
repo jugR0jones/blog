@@ -29,12 +29,12 @@ onMounted(async () => {
 })
 
 function parseFrontmatter(raw) {
-  const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
+  const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/)
   if (!fmMatch) return { data: {}, content: raw }
   const fm = fmMatch[1]
   const content = fmMatch[2]
   const data = {}
-  fm.split('\n').forEach(line => {
+  fm.split(/\r?\n/).forEach(line => {
     const [key, ...rest] = line.split(':')
     if (key) data[key.trim()] = rest.join(':').trim()
   })

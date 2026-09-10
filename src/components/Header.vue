@@ -2,10 +2,10 @@
   <header class="header">
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><a href="/">Home</a></li>
-        <li class="nav-item"><a href="/posts">Posts</a></li>
-        <li class="nav-item"><a href="/projects">Projects</a></li>
-        <li class="nav-item"><a href="/about">About</a></li>
+        <li class="nav-item"><router-link to="/">Home</router-link></li>
+        <li class="nav-item"><router-link to="/posts">Posts</router-link></li>
+        <li class="nav-item"><router-link to="/projects">Projects</router-link></li>
+        <li class="nav-item"><router-link to="/about">About</router-link></li>
       </ul>
     </nav>
   </header>
