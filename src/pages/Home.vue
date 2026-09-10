@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 const posts = ref([])
 
@@ -57,7 +57,7 @@ function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString()
 }
 
-const recentPosts = posts
+const recentPosts = computed(() => posts.value)
 </script>
 
 <style scoped>

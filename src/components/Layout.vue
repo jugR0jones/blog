@@ -18,6 +18,12 @@ import Header from './Header.vue'
   padding: 1rem;
 }
 
+@media (max-width: 768px) {
+  .layout {
+    padding: 0.5rem;
+  }
+}
+
 .main {
   min-height: calc(100vh - 100px);
 }

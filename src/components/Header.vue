@@ -34,6 +34,18 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .nav-item a {
+    font-size: 0.9rem;
+  }
 }
 
 .nav-item a {
