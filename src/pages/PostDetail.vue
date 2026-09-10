@@ -10,6 +10,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { marked } from 'marked'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug)
@@ -24,7 +25,7 @@ onMounted(async () => {
     const raw = await modules[targetPath]()
     const { data, content } = parseFrontmatter(raw)
     post.value = { ...data, slug: data.slug }
-    renderedContent.value = content
+    renderedContent.value = marked.parse(content)
   }
 })
 
