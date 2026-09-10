@@ -3,7 +3,7 @@ title: AI Server Set Up
 slug: ai-server-set-up
 date: 2026-09-09
 summary: Documenting the set up of my AI server
-tags: hardware, linux, gpu, amd
+tags: hardware, linux, gpu, amd, amd ai 9 hx470
 ---
 
 # Hardware

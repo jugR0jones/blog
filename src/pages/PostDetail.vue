@@ -2,6 +2,9 @@
   <article class="post-detail">
     <h1>{{ post?.title }}</h1>
     <p class="meta">Published {{ formattedDate }}</p>
+    <section v-if="post?.summary" class="summary" aria-label="Summary">
+      <p>{{ post.summary }}</p>
+    </section>
     <div class="tags" v-if="post?.tags">
       <span v-for="tag in post.tags.split(',')" :key="tag.trim()" class="tag">{{ tag.trim() }}</span>
     </div>
@@ -54,6 +57,16 @@ const formattedDate = computed(() => {
 <style scoped>
 .post-detail {
   max-width: 800px;
+}
+.summary {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0.75rem 0 1rem;
+}
+.summary p {
+  white-space: pre-line;
+  margin: 0;
 }
 .meta {
   color: #666;

@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <h1>My Blog</h1>
-    <p>Welcome to my personal blog where I share my thoughts and experiences.</p>
+    <h1>My Space</h1>
+    <p>These are my words of wisdom to myself, describing the journey of my struggles with technology.</p>
+    <p>In these pages are the lists of things I need to constantly remind myself about.</p>
 
     <section class="recent-posts">
       <h2>Recent Posts</h2>
