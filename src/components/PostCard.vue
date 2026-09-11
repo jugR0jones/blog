@@ -1,9 +1,8 @@
 <template>
-  <article class=\
-post-card\>
-    <h2 class=\post-title\><a :href=\post.slug\>{{ post.title }}</a></h2>
-    <p class=\post-date\>{{ formatDate(post.date) }}</p>
-    <p class=\post-excerpt\>{{ post.excerpt }}</p>
+  <article class="post-card">
+    <h2 class="post-title"><a :href="post.slug">{{ post.title }}</a></h2>
+    <p class="post-date">{{ formatDate(post.date) }}</p>
+    <p class="post-excerpt">{{ post.excerpt }}</p>
   </article>
 </template>
 

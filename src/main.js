@@ -8,12 +8,16 @@ import About from './pages/About.vue'
 import Posts from './pages/Posts.vue'
 import Projects from './pages/Projects.vue'
 import PostDetail from './pages/PostDetail.vue'
+import Tags from './pages/Tags.vue'
+import TagDetail from './pages/TagDetail.vue'
 
 // Define routes
 const routes = [
   { path: '/', component: Home },
   { path: '/posts', component: Posts },
   { path: '/posts/:slug', component: PostDetail },
+  { path: '/tags', component: Tags },
+  { path: '/tags/:tag', component: TagDetail },
   { path: '/projects', component: Projects },
   { path: '/about', component: About }
 ]
