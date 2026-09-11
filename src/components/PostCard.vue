@@ -1,12 +1,13 @@
 <template>
   <article class="post-card">
-    <h2 class="post-title"><a :href="'/posts/' + post.slug">{{ post.title }}</a></h2>
+    <h2 class="post-title"><router-link :to="'/posts/' + post.slug">{{ post.title }}</router-link></h2>
     <p class="post-date">{{ formatDate(post.date) }}</p>
     <p class="post-excerpt">{{ post.excerpt || post.summary }}</p>
   </article>
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router'
 defineProps({
   post: {
     type: Object,
