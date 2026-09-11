@@ -22,8 +22,9 @@ function parseFrontmatter(raw) {
 export function useTagMap() {
   const posts = ref([])
 
-  const modules = import.meta.glob('/src/content/posts/*.md', { as: 'raw', eager: true })
-  const entries = Object.entries(modules).map(([path, raw]) => {
+  const modules = import.meta.glob('/src/content/posts/*.md', { query: '?raw', eager: true })
+  const entries = Object.entries(modules).map(([path, mod]) => {
+    const raw = mod.default || mod
     const { data } = parseFrontmatter(raw)
     return { ...data, path }
   }).filter(p => p.title && p.slug && p.date && p.summary && p.tags)

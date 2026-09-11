@@ -24,11 +24,12 @@ const post = ref(null)
 const renderedContent = ref('')
 
 onMounted(async () => {
-  const modules = import.meta.glob('/src/content/posts/*.md', { as: 'raw' })
+  const modules = import.meta.glob('/src/content/posts/*.md', { query: '?raw' })
   const paths = Object.keys(modules)
   const targetPath = paths.find(p => p.includes(slug.value))
   if (targetPath) {
-    const raw = await modules[targetPath]()
+    const mod = await modules[targetPath]()
+    const raw = mod.default || mod
     const { data, content } = parseFrontmatter(raw)
     post.value = { ...data, slug: data.slug }
     renderedContent.value = marked.parse(content)

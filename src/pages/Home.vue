@@ -25,10 +25,11 @@ import { ref, onMounted, computed } from 'vue'
 const posts = ref([])
 
 onMounted(async () => {
-  const modules = import.meta.glob('/src/content/posts/*.md', { as: 'raw' })
+  const modules = import.meta.glob('/src/content/posts/*.md', { query: '?raw' })
   const entries = await Promise.all(
     Object.entries(modules).map(async ([path, loader]) => {
-      const raw = await loader()
+      const mod = await loader()
+      const raw = mod.default || mod
       const { data } = parseFrontmatter(raw)
       return { ...data, path }
     })
