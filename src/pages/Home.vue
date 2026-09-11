@@ -6,14 +6,7 @@
 
     <section class="recent-posts">
       <h2>Recent Posts</h2>
-      <article v-for="post in recentPosts" :key="post.slug" class="post-summary">
-        <h3><router-link :to="'/posts/' + post.slug">{{ post.title }}</router-link></h3>
-        <p>{{ post.summary }}</p>
-        <p class="meta">Published {{ formatDate(post.date) }}</p>
-        <div class="tags" v-if="post.tags">
-          <span v-for="tag in post.tags.split(',')" :key="tag.trim()" class="tag">{{ tag.trim() }}</span>
-        </div>
-      </article>
+      <PostCard v-for="post in recentPosts" :key="post.slug" :post="post" />
       <p v-if="recentPosts.length === 0">No posts available.</p>
     </section>
   </div>
@@ -21,6 +14,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import PostCard from '../components/PostCard.vue'
 
 const posts = ref([])
 

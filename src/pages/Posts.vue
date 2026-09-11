@@ -3,14 +3,7 @@
     <h1>Posts</h1>
     
     <section class="all-posts">
-      <article v-for="post in posts" :key="post.slug" class="post-summary">
-        <h2><router-link :to="'/posts/' + post.slug">{{ post.title }}</router-link></h2>
-        <p>{{ post.summary }}</p>
-        <p class="meta">Published {{ formatDate(post.date) }}</p>
-        <div class="tags" v-if="post.tags">
-          <span v-for="tag in post.tags.split(',')" :key="tag.trim()" class="tag">{{ tag.trim() }}</span>
-        </div>
-      </article>
+      <PostCard v-for="post in posts" :key="post.slug" :post="post" />
       <p v-if="posts.length === 0">No posts available.</p>
     </section>
   </div>
@@ -18,6 +11,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import PostCard from '../components/PostCard.vue'
 
 const posts = ref([])
 
