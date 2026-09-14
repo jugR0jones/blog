@@ -7,6 +7,7 @@ import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Posts from './pages/Posts.vue'
 import Projects from './pages/Projects.vue'
+import ProjectDetail from './pages/ProjectDetail.vue'
 import PostDetail from './pages/PostDetail.vue'
 import Tags from './pages/Tags.vue'
 import TagDetail from './pages/TagDetail.vue'
@@ -19,6 +20,7 @@ const routes = [
   { path: '/tags', component: Tags },
   { path: '/tags/:tag', component: TagDetail },
   { path: '/projects', component: Projects },
+  { path: '/projects/:slug', component: ProjectDetail },
   { path: '/about', component: About }
 ]
 
