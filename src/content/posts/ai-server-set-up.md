@@ -23,7 +23,10 @@ This is an APU with a unified memory architecture, the gpu and system memory use
 ## Configure Shared Memory In BIOS
 
 ### Reduce Reserved Memory For GPU To Minimum
-TODO: Get the exact terms and menus
+
+This AMD APU has a unified memory architecture. Setting this value to the lowest it can go, say 1GB, on Linux, makes it easy to run most models.
+
+However, for larger models such as Qwen-Coder-Next, this value needs to be set to 16Gb or higher.
 
 ### Ensure BAR Is Enabled
 
