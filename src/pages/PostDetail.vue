@@ -17,11 +17,15 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { marked } from 'marked'
+import { useHeadings } from '../composables/useHeadings'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug)
 const post = ref(null)
 const renderedContent = ref('')
+const headings = ref([])
+
+const { extractHeadings } = useHeadings()
 
 onMounted(async () => {
   const modules = import.meta.glob('/src/content/posts/*.md', { query: '?raw' })
@@ -33,6 +37,7 @@ onMounted(async () => {
     const { data, content } = parseFrontmatter(raw)
     post.value = { ...data, slug: data.slug }
     renderedContent.value = marked.parse(content)
+    headings.value = extractHeadings(content)
   }
 })
 

@@ -3,7 +3,17 @@
   <div class="layout">
     <div class="layout-sidebar">
       <nav class="sidebar-nav">
-        <ul class="sidebar-nav-list">
+        <ul class="sidebar-nav-list" v-if="headings && headings.length > 0">
+          <template v-for="heading in headings" :key="heading.id">
+            <li 
+              class="sidebar-nav-item" 
+              :style="{ paddingLeft: (heading.level - 2) * 1.5 + 'rem' }"
+            >
+              <a :href="`#${heading.id}`">{{ heading.text }}</a>
+            </li>
+          </template>
+        </ul>
+        <ul class="sidebar-nav-list" v-else>
           <li class="sidebar-nav-item"><router-link to="/">Home</router-link></li>
           <li class="sidebar-nav-item"><router-link to="/posts">Posts</router-link></li>
           <li class="sidebar-nav-item"><router-link to="/projects">Projects</router-link></li>
@@ -19,6 +29,13 @@
 
 <script setup>
 import Header from './Header.vue'
+
+defineProps({
+  headings: {
+    type: Array,
+    default: () => []
+  }
+})
 </script>
 
 <style scoped>
